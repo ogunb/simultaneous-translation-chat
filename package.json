@@ -1,0 +1,9 @@
+{
+  "name": "translation-chat",
+  "version": "0.0.1",
+  "main": "src/index.html",
+  "repository": "git@github.com:ogunb/simultaneous-translation-chat.git",
+  "author": "Ogunb",
+  "license": "MIT",
+  "private": false
+}
