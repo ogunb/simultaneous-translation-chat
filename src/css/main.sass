@@ -1,0 +1,41 @@
+@import './helper'
+\:root
+  --light: #f2f2f2
+  --dark: #282828
+  --green: #21e6c1
+body
+  font-family: 'PT Sans', sans-serif
+  background: var(--light)
+  font-size: 20px
+.chat__logo
+  text-align: center
+  font-size: 60px
+  color: var(--green)
+  letter-spacing: 20px
+.chat__main-page, .chat__screen
+  display: none
+.chat__input-group__label
+  font-weight: 700
+.chat__input-group
+  margin: 20px 0
+.chat__input
+  margin-top: 10px
+  background: none
+  border: none
+  border-bottom: 2px solid var(--dark)
+  width: 250px
+  outline: none
+  padding: 10px 0
+  transition: border-color 300ms ease-in-out
+.chat__input:focus
+  border-color: var(--green)
+.chat__submit
+  margin-top: 10px
+  background: var(--green)
+  border: none
+  width: 250px
+  border-radius: 360px
+  padding: 10px 20px
+  color: var(--light)
+  cursor: pointer
+  font-weight: 700

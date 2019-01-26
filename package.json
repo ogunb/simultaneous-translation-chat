@@ -1,9 +1,19 @@
 {
-  "name": "translation-chat",
-  "version": "0.0.1",
-  "main": "src/index.html",
-  "repository": "https://github.com/ogunb/simultaneous-translation-chat",
-  "author": "Ogunb",
-  "license": "MIT",
-  "private": false
+	"name": "translation-chat",
+	"version": "0.0.1",
+	"main": "src/index.html",
+	"repository": "https://github.com/ogunb/simultaneous-translation-chat",
+	"author": "Ogunb",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"dev": "parcel src/index.html",
+		"build": "parcel build src/index.html"
+	},
+	"devDependencies": {
+		"sass": "^1.16.1"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.1"
+	}
 }
