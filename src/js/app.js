@@ -1,23 +1,31 @@
 import 'normalize.css';
 import '../css/main.sass';
 import LanguagesList from './languages/languagesList';
-import JoinChat from './joinChat';
-// eslint-disable-next-line
-export const API_KEY = process.env.API_KEY;
+import JoinChat from './chatForms/joinChat';
+import CreateChat from './chatForms/createChat';
+/* eslint-disable */
+export const TRANSLATE_API_KEY = process.env.TRANSLATE_API_KEY;
+export const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
+/* eslint-enable */
 
-const landing = document.querySelector('.chat__main-page');
-let userNick = sessionStorage.getItem('chat-nick');
 LanguagesList(); // Load languages to DOM.
-
-if (!window.location.hash && !userNick) {
-  landing.style.display = 'flex';
+const landing = document.querySelector('.chat__main-page');
+const chatScreen = document.querySelector('.chat__screen');
+const chatForm = document.querySelector('.chat__form');
+const userNick = sessionStorage.getItem('chat-nick');
+if (!window.location.hash) {
+  chatForm.addEventListener('submit', e => {
+    e.preventDefault();
+    CreateChat().onSubmit(e);
+  });
 } else if (window.location.hash && !userNick) {
-  const chatForm = document.querySelector('.chat__form');
-  JoinChat.init();
-  chatForm.addEventListener('submit', () => {
-    JoinChat.onSubmit();
-    ({ userNick } = JoinChat.userNick);
+  JoinChat().init();
+  chatForm.addEventListener('submit', e => {
+    e.preventDefault();
+    JoinChat().onSubmit(e);
   });
 } else {
-  // window.scrollTo(0, document.body.scrollHeight);
+  landing.style.display = 'none';
+  chatScreen.style.display = 'flex';
+  window.scrollTo(0, document.body.scrollHeight);
 }

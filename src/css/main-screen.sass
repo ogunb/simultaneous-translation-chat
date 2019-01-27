@@ -18,8 +18,8 @@
   outline: none
   padding: 10px 0
   transition: border-color 300ms ease-in-out
-.chat__input:focus
-  border-color: var(--green)
+  &:focus
+    border-color: var(--green)
 .chat__start
   margin-top: 10px
   background: var(--green)
@@ -32,6 +32,10 @@
   font-weight: 700
   transition: background 300ms ease-in-out, transform 500ms ease-in-out
   position: relative
+  &:hover
+    background: var(--darker-green)
+  &:focus
+    transform: scale(.95)
 .chat__start::before
   content: ''
   display: block
@@ -42,6 +46,3 @@
   left: 0
   border-radius: 360px
   box-shadow: 0 5px 15px rgba(0,0,0,.1)
-.chat__start:hover
-  background: var(--darker-green)
-  transform: scale(.95)

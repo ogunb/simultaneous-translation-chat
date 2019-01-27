@@ -18,8 +18,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,.2)
   border: none
   transition: box-shadow 300ms ease-in-out
-.chat__message__input:focus
-  box-shadow: 0 0 20px rgba(33, 230, 193, .5)
+  &:focus
+    box-shadow: 0 0 20px rgba(33, 230, 193, .5)
 .chat__message__send
   border: none
   border-radius: 50%
@@ -32,6 +32,8 @@
   font-size: 30px
   margin-left: 10px
   cursor: pointer
-  transition: background 300ms ease-in-out
-.chat__message__send:hover
-  background: var(--darker-green)
+  transition: background 300ms ease-in-out, transform 300ms ease-in-out
+  &:hover
+    background: var(--darker-green)
+  &:active
+    transform: scale(.95)

@@ -7,8 +7,8 @@
 	"license": "MIT",
 	"private": false,
 	"scripts": {
-		"dev": "parcel src/index.html",
-		"build": "parcel build src/index.html"
+		"dev": "parcel src/index.html -p 3000",
+		"build": "parcel build src/index.html --https"
 	},
 	"devDependencies": {
 		"dotenv": "^6.2.0",
