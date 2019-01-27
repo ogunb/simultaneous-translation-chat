@@ -11,9 +11,11 @@
 		"build": "parcel build src/index.html"
 	},
 	"devDependencies": {
+		"dotenv": "^6.2.0",
 		"sass": "^1.16.1"
 	},
 	"dependencies": {
+		"languages": "^0.1.3",
 		"normalize.css": "^8.0.1"
 	}
 }

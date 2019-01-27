@@ -9,7 +9,11 @@
 	<body>
 		<div class="chat__wrapper">
 			<h1 class="chat__logo">CHAT</h1>
-			<section class="chat__main-page flex-column">
+
+			<section class="chat__main-page">
+				<p class="chat__main-page__join">
+					Start a chat room with simultaneous translation.
+				</p>
 				<form class="chat__form">
 					<div class="chat__input-group">
 						<label for="chat__nick" class="chat__input-group__label"
@@ -27,29 +31,12 @@
 						<label for="chat__nick" class="chat__input-group__label"
 							>Your language:</label
 						><br />
-						<select name="chat__lang" class="chat__lang chat__input">
-							<option value="asd">asd</option>
-						</select>
+						<select name="chat__lang" class="chat__lang chat__input"> </select>
 					</div>
-					<button type="submit" class="chat__submit">Create a chat room</button>
+					<button type="submit" class="chat__start">Create a chat room</button>
 				</form>
 			</section>
-			<section class="chat__invited flex-column">
-				<form class="chat__form">
-					<div class="chat__input-group">
-						<label for="chat__nick" class="chat__input-group__label"
-							>Your nick will be:</label
-						>
-						<input
-							type="text"
-							name="chat__nick"
-							id="chat__nick"
-							placeholder="Nick"
-						/>
-					</div>
-					<button type="submit" class="chat__submit">Join the chat room</button>
-				</form>
-			</section>
+
 			<section class="chat__screen">
 				<div class="chat__message__group--inc">
 					<p class="chat__message__name">Rumuz</p>
@@ -70,6 +57,9 @@
 				</form>
 			</section>
 		</div>
+		<a href="http://translate.yandex.com/" class="poweredYandex"
+			>Powered by Yandex</a
+		>
 		<script src="./js/main.js"></script>
 	</body>
 </html>
