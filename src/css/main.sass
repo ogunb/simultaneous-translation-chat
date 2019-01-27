@@ -1,3 +1,6 @@
+@import 'main-screen'
+@import 'chat-screen'
+@import 'chat-message-form'
 \:root
   --light: #f2f2f2
   --dark: #282828
@@ -6,64 +9,22 @@
 body
   font-family: 'PT Sans', sans-serif
   background: var(--light)
+  color: var(--dark)
   font-size: 20px
   position: relative
-  height: 94vh
+  height: 100vh
+  padding-top: 10px
+  box-sizing: border-box
 a
   color: var(--darker-green)
-.poweredYandex
-  position: absolute
-  bottom: 1%
-  left: 50%
-  transform: translateX(-50%)
-.chat__logo
+p
+  line-height: 1.4
+.chat__header
   text-align: center
+.chat__logo
   font-size: 60px
   color: var(--green)
-  letter-spacing: 20px
-.chat__screen
-  display: none
+  margin-top: 0
+  margin-bottom: 10px
 .chat__main-page
-  display: flex
-  flex-direction: column
-  align-items: center
-.chat__input-group__label
-  font-weight: 700
-.chat__input-group
-  margin: 20px 0
-.chat__input
-  margin-top: 10px
-  background: none
-  border: none
-  border-bottom: 2px solid var(--dark)
-  width: 250px
-  outline: none
-  padding: 10px 0
-  transition: border-color 300ms ease-in-out
-.chat__input:focus
-  border-color: var(--green)
-.chat__start
-  margin-top: 10px
-  background: var(--green)
-  border: none
-  width: 250px
-  border-radius: 360px
-  padding: 10px 20px
-  color: var(--light)
-  cursor: pointer
-  font-weight: 700
-  transition: background 300ms ease-in-out, transform 500ms ease-in-out
-  position: relative
-.chat__start::before
-  content: ''
-  display: block
-  position: absolute
-  width: 100%
-  height: 100%
-  top: 0
-  left: 0
-  border-radius: 360px
-  box-shadow: 0 5px 15px rgba(0,0,0,.1)
-.chat__start:hover
-  background: var(--darker-green)
-  transform: scale(.95)
+  display: none
