@@ -10,9 +10,7 @@
 		<div class="chat__wrapper">
 			<header class="chat__header">
 				<h1 class="chat__logo">C H A T</h1>
-				<a href="http://translate.yandex.com/" class="poweredYandex"
-					>Powered by Yandex</a
-				>
+				<a href="http://translate.yandex.com/">Powered by Yandex</a>
 			</header>
 			<section class="chat__main-page">
 				<p class="chat__main-page__join">
@@ -29,13 +27,15 @@
 							id="chat__nick"
 							class="chat__input"
 							placeholder="Nick"
+							required
 						/>
 					</div>
 					<div class="chat__input-group">
 						<label for="chat__nick" class="chat__input-group__label"
 							>Your language:</label
 						><br />
-						<select name="chat__lang" class="chat__lang chat__input"> </select>
+						<select name="chat__lang" class="chat__lang chat__input" required>
+						</select>
 					</div>
 					<button type="submit" class="chat__start">Create a chat room</button>
 				</form>
@@ -77,16 +77,41 @@
 						</p>
 					</div>
 				</div>
+				<div class="chat__message__group chat__message__group--self">
+					<p class="chat__message__name">Ogun</p>
+					<div class="chat__message__info">
+						<p class="chat__message">
+							sdfgsdfgsdfgsdfg hiçbi' şey var Karanlıklardan doğar aydınlıklar
+						</p>
+					</div>
+				</div>
+				<div class="chat__message__group chat__message__group--self">
+					<p class="chat__message__name">Ogun</p>
+					<div class="chat__message__info">
+						<p class="chat__message">
+							sdfgsdfgsdfgsdfg hiçbi' şey var Karanlıklardan doğar aydınlıklar
+						</p>
+					</div>
+				</div>
+				<div class="chat__message__group chat__message__group--self">
+					<p class="chat__message__name">Ogun</p>
+					<div class="chat__message__info">
+						<p class="chat__message">
+							sdfgsdfgsdfgsdfg hiçbi' şey var Karanlıklardan doğar aydınlıklar
+						</p>
+					</div>
+				</div>
+				<form class="chat__message__input-group">
+					<input
+						type="text"
+						class="chat__message__input"
+						placeholder="Enter your message..."
+						required
+					/>
+					<button type="submit" class="chat__message__send">></button>
+				</form>
 			</section>
-			<form class="chat__message__input-group">
-				<input
-					type="text"
-					class="chat__message__input"
-					placeholder="Enter your message..."
-				/>
-				<button type="submit" class="chat__message__send">></button>
-			</form>
 		</div>
-		<script src="./js/main.js"></script>
+		<script src="./js/app.js"></script>
 	</body>
 </html>
