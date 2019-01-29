@@ -1,8 +1,11 @@
+import directToChat from './directToChat';
+
 function JoinChat() {
+  const hashId = window.location.hash;
   const invitedBy = 'Josh';
   function onSubmit(e) {
-    const locationHash = window.location.hash;
     sessionStorage.setItem('chat-nick', e.target[0].value);
+    directToChat();
   }
   function init() {
     const joinMessage = document.querySelector('.chat__main-page__join');

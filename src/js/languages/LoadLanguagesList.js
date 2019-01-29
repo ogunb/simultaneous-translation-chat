@@ -1,6 +1,6 @@
 import { languages, flags } from './languages';
 
-function LanguagesList() {
+function LoadLanguagesList() {
   const selectEl = document.querySelector('.chat__lang');
   const optionsNodes = [];
   for (let i = 0; i < languages.length; i += 2) {
@@ -9,16 +9,14 @@ function LanguagesList() {
     } ${flags[languages[i + 1]] || ''}</option>`;
     optionsNodes.push(optionNode);
   }
-  optionsNodes
+  selectEl.innerHTML = optionsNodes
     .sort((a, b) => {
       const regex = />[a-z]+/gi;
       if (a.match(regex)[0] > b.match(regex)[0]) return 1;
       if (a.match(regex)[0] < b.match(regex)[0]) return -1;
       return 0;
     })
-    .forEach(el => {
-      selectEl.innerHTML += el;
-    });
+    .join('');
 }
 
-export default LanguagesList;
+export default LoadLanguagesList;
