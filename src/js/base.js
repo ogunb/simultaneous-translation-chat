@@ -21,5 +21,5 @@ export default firebase.database();
 //   .database()
 //   .ref(`${hash}/messages`)
 //   .on('value', snapshot => {
-//     console.log(snapshot.value);
+//     console.log(snapshot.val());
 //   });

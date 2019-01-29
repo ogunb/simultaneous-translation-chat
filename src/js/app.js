@@ -1,7 +1,6 @@
 import 'normalize.css';
 import '../css/main.sass';
-import firebase from './base';
-import LoadLanguagesList from './languages/LoadLanguagesList';
+import LoadLanguages from './languages/LoadLanguages';
 import JoinChat from './chatForms/joinChat';
 import CreateChat from './chatForms/createChat';
 import directToChat from './chatForms/directToChat';
@@ -34,13 +33,16 @@ import directToChat from './chatForms/directToChat';
 
 /* eslint-disable */
 export const TRANSLATE_API_KEY = process.env.TRANSLATE_API_KEY;
-export const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 /* eslint-enable */
 
-LoadLanguagesList();
-const chatForm = document.querySelector('.chat__form');
+LoadLanguages();
 const userNick = sessionStorage.getItem('chat-nick');
+const chatForm = document.querySelector('.chat__form');
+const loading = document.querySelector('.loading');
+const landing = document.querySelector('.chat__main-page');
 if (!window.location.hash) {
+  loading.style.display = 'none';
+  landing.style.display = 'flex';
   chatForm.addEventListener('submit', e => {
     e.preventDefault();
     CreateChat().onSubmit(e);
@@ -54,31 +56,3 @@ if (!window.location.hash) {
 } else {
   directToChat();
 }
-
-const exampleDatabase = {
-  id: {
-    users: [
-      { nick: 'ogun', lang: 'tr' },
-      { nick: 'josh', lang: 'en' },
-      { nick: 'jose', lang: 'es' },
-    ],
-    messages: [
-      {
-        originalMessage: 'naber kanka?',
-        translations: {
-          es: 'Como estas, amigo?',
-          en: "What's up, bro?",
-        },
-        messageOwner: 'ogun',
-      },
-      {
-        originalMessage: 'good bro, you?',
-        translations: {
-          es: 'Bien hermano, tu?',
-          tr: 'İyi kanka, sen?',
-        },
-        messageOwner: 'josh',
-      },
-    ],
-  },
-};
