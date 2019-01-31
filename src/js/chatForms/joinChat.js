@@ -1,6 +1,6 @@
 import firebase from '../base';
 import directToChat from './directToChat';
-import { checkUsers } from './checkUsers';
+import { checkUsersExistence } from './checkUsersExistence';
 
 function JoinChat() {
   const hashId = window.location.hash.substring(1);
@@ -8,18 +8,15 @@ function JoinChat() {
   let invitedBy;
 
   async function onSubmit(e) {
+    const chatFormInvalidNode = document.querySelector('.form-is-invalid');
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
-    const userExists = await checkUsers(hashId, user.username);
+    const userExists = await checkUsersExistence(hashId, user.username);
     if (user.username === ('' || ' ')) {
-      document.querySelector(
-        '.form-is-invalid'
-      ).textContent = `Dude, you can't have a “space” as a username.`;
+      chatFormInvalidNode.textContent = `Dude, you can't have a “space” as a username.`;
       e.target[0].classList.add('is-invalid');
     } else if (userExists) {
-      document.querySelector(
-        '.form-is-invalid'
-      ).textContent = `This nick is already taken in this room dude, sorry.`;
+      chatFormInvalidNode.textContent = `This nick is already taken for this room dude, sorry.`;
       e.target[0].classList.add('is-invalid');
     } else {
       // sessionStorage.setItem('chat-nick', e.target[0].value);
@@ -28,8 +25,8 @@ function JoinChat() {
   }
 
   async function getRoomOwner() {
-    await firebase.ref(`${hashId}/owner`).once('value', async snapshot => {
-      invitedBy = await snapshot.val();
+    await firebase.ref(`${hashId}/owner`).once('value', snapshot => {
+      invitedBy = snapshot.val();
     });
   }
 
