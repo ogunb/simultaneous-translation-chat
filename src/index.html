@@ -18,6 +18,7 @@
 					Start a chat room with simultaneous translation.
 				</p>
 				<form class="chat__form">
+					<span class="form-is-invalid"></span>
 					<div class="chat__input-group">
 						<label for="chat__nick" class="chat__input-group__label"
 							>Your nick will be:</label
@@ -67,7 +68,12 @@
 						placeholder="Enter your message..."
 						required
 					/>
-					<button type="submit" class="chat__message__send">></button>
+					<button type="button" class="btn btn-round chat__message__lang">
+						lang
+					</button>
+					<button type="submit" class="btn btn-round chat__message__send">
+						>
+					</button>
 				</form>
 			</section>
 		</div>
