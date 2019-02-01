@@ -33,7 +33,19 @@
   font-size: 25px
   margin-left: 10px
   cursor: pointer
+  text-align: center
   transition: background 300ms ease-in-out, transform 300ms ease-in-out
+  fill: var(--light)
+  position: relative
+  svg
+    padding-top: 5px
+    margin: 0
+    width: 35px
+    height: 35px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
   &:hover
     background: var(--darker-green)
   &:active
