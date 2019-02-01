@@ -5,6 +5,18 @@
   position: relative
   box-sizing: border-box
   margin-bottom: 100px
+  &__first-message__arrow
+    margin: 0
+    padding: 0
+    margin-top: 50px
+    width: 200px
+    height: 5vh
+    transform: rotate(170deg)
+    svg
+      animation: fromDarkToDarkerGreen 500ms ease-in-out infinite alternate
+      fill: var(--dark)
+  &__first-message__info
+    margin: 0
 .chat__message__group
   .chat__message__info
     display: inline-block
@@ -35,3 +47,9 @@
   .chat__message__name
     margin-top: 10px
     text-align: right
+
+@keyframes fromDarkToDarkerGreen
+  from
+    fill: var(--dark)
+  to
+    fill: var(--darker-green)
