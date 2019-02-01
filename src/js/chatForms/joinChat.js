@@ -2,7 +2,11 @@ import firebase from '../base';
 import directToChat from './directToChat';
 
 function JoinChat() {
-  const hashId = window.location.hash.substring(1);
+  const { hash: dirtyHash } = window.location;
+  const hashId =
+    dirtyHash.charAt(0) === '?'
+      ? dirtyHash.substring(2)
+      : dirtyHash.substring(1);
   const user = {};
 
   async function checkUsersExistence(hash, userNick) {
@@ -25,7 +29,7 @@ function JoinChat() {
     const chatFormInvalidNode = document.querySelector('.form-is-invalid');
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
-    const userExists = await checkUsersExistence(hashId, user.username);
+    const userExists = await checkUsersExistence(user.username);
     if (user.username === ('' || ' ')) {
       chatFormInvalidNode.textContent = `Dude, you can't have a “space” as a username.`;
       e.target[0].classList.add('is-invalid');
@@ -34,7 +38,7 @@ function JoinChat() {
       e.target[0].classList.add('is-invalid');
     } else {
       // sessionStorage.setItem('chat-nick', e.target[0].value);
-      directToChat();
+      directToChat(hashId, user);
     }
   }
 
