@@ -1,5 +1,4 @@
 import MessageForm from '../chatMessages/MessageForm';
-import addLanguagesToDb from './addLanguagesToDb';
 
 export default function directToChat(hash, user) {
   const landing = document.querySelector('.chat__main-page');
@@ -8,7 +7,6 @@ export default function directToChat(hash, user) {
   loading.style.display = 'none';
   landing.style.display = 'none';
   chatScreen.style.display = 'flex';
-  addLanguagesToDb(hash, user.lang);
   MessageForm(hash, user).init();
   window.scrollTo(0, document.body.scrollHeight);
 }
