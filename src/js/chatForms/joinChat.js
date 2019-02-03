@@ -1,5 +1,6 @@
 import firebase from '../base';
 import directToChat from './directToChat';
+import createOrJoinRoom from './createOrJoinRoom';
 
 function JoinChat() {
   const { hash: dirtyHash } = window.location;
@@ -8,14 +9,6 @@ function JoinChat() {
       ? dirtyHash.substring(2)
       : dirtyHash.substring(1);
   const user = {};
-
-  async function checkUsersExistence(hash, userNick) {
-    let exist = true;
-    await firebase.ref(`${hash}/users/${userNick}`).once('value', snapshot => {
-      if (snapshot.val() === null) exist = false;
-    });
-    return exist;
-  }
 
   async function getRoomOwner() {
     let invitedBy;
@@ -26,19 +19,16 @@ function JoinChat() {
   }
 
   async function onSubmit(e) {
-    const chatFormInvalidNode = document.querySelector('.form-is-invalid');
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
-    const userExists = await checkUsersExistence(user.username);
-    if (user.username === ('' || ' ')) {
-      chatFormInvalidNode.textContent = `Dude, you can't have a “space” as a username.`;
-      e.target[0].classList.add('is-invalid');
-    } else if (userExists) {
-      chatFormInvalidNode.textContent = `This nick is already taken for this room dude, sorry.`;
-      e.target[0].classList.add('is-invalid');
-    } else {
+    try {
+      await createOrJoinRoom(hashId, user);
       sessionStorage.setItem('chat-user', JSON.stringify(user));
       directToChat(hashId, user);
+    } catch (err) {
+      const chatFormInvalidNode = document.querySelector('.form-is-invalid');
+      chatFormInvalidNode.textContent = err;
+      e.target[0].classList.add('is-invalid');
     }
   }
 

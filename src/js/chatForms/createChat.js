@@ -1,6 +1,7 @@
 import firebase from '../base';
 import { createHash } from '../helpers';
 import directToChat from './directToChat';
+import createOrJoinRoom from './createOrJoinRoom';
 
 function CreateChat() {
   const hashId = createHash();
@@ -9,7 +10,7 @@ function CreateChat() {
   function createRoom({ username, lang }) {
     if (!username || !lang) return false;
     firebase.ref(`${hashId}/owner`).set(username);
-    firebase.ref(`${hashId}/users`).set({ [username]: lang });
+    return createOrJoinRoom(hashId, user);
   }
 
   function onSubmit(e) {
@@ -17,8 +18,14 @@ function CreateChat() {
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
     sessionStorage.setItem('chat-user', JSON.stringify(user));
-    createRoom(user);
-    directToChat(hashId, user);
+    try {
+      createRoom(user);
+      directToChat(hashId, user);
+    } catch (err) {
+      const chatFormInvalidNode = document.querySelector('.form-is-invalid');
+      chatFormInvalidNode.textContent = err;
+      e.target[0].classList.add('is-invalid');
+    }
   }
 
   return {
