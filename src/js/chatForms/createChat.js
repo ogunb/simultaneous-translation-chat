@@ -16,7 +16,7 @@ function CreateChat() {
     window.location.hash = hashId;
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
-    sessionStorage.setItem('chat-nick', e.target[0].value);
+    sessionStorage.setItem('chat-user', JSON.stringify(user));
     createRoom(user);
     directToChat(hashId, user);
   }
