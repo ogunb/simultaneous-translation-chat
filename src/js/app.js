@@ -10,24 +10,23 @@ export const TRANSLATE_API_KEY = process.env.TRANSLATE_API_KEY;
 /* eslint-enable */
 
 LoadLanguages();
-const user = JSON.parse(sessionStorage.getItem('chat-user'));
-const hash = window.location.hash.substring(1);
+const userNick = sessionStorage.getItem('chat-nick');
 const chatForm = document.querySelector('.chat__form');
 const loading = document.querySelector('.loading');
 const landing = document.querySelector('.chat__main-page');
-if (!hash) {
+if (!window.location.hash) {
   loading.style.display = 'none';
   landing.style.display = 'flex';
   chatForm.addEventListener('submit', e => {
     e.preventDefault();
     CreateChat().onSubmit(e);
   });
-} else if (hash && !user) {
+} else if (window.location.hash && !userNick) {
   JoinChat().init();
   chatForm.addEventListener('submit', e => {
     e.preventDefault();
     JoinChat().onSubmit(e);
   });
 } else {
-  directToChat(hash, user);
+  directToChat();
 }

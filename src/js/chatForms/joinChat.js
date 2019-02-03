@@ -37,7 +37,7 @@ function JoinChat() {
       chatFormInvalidNode.textContent = `This nick is already taken for this room dude, sorry.`;
       e.target[0].classList.add('is-invalid');
     } else {
-      sessionStorage.setItem('chat-user', JSON.stringify(user));
+      sessionStorage.setItem('chat-nick', e.target[0].value);
       directToChat(hashId, user);
     }
   }
