@@ -21,14 +21,8 @@ function JoinChat() {
   async function onSubmit(e) {
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
-    try {
-      await createOrJoinRoom(hashId, user);
-      sessionStorage.setItem('chat-user', JSON.stringify(user));
-      directToChat(hashId, user);
-    } catch (err) {
-      const chatFormInvalidNode = document.querySelector('.form-is-invalid');
-      chatFormInvalidNode.textContent = err;
-      e.target[0].classList.add('is-invalid');
+    if (user.username && user.lang) {
+      createOrJoinRoom(hashId, user, e);
     }
   }
 
