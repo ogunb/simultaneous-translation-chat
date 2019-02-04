@@ -1,5 +1,4 @@
 import firebase from '../base';
-import directToChat from './directToChat';
 import createOrJoinRoom from './createOrJoinRoom';
 
 function JoinChat() {
@@ -22,7 +21,7 @@ function JoinChat() {
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
     if (user.username && user.lang) {
-      createOrJoinRoom(hashId, user, e);
+      createOrJoinRoom().init(hashId, user, e);
     }
   }
 
