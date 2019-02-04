@@ -10,10 +10,10 @@ function JoinChat() {
   const user = {};
 
   async function getRoomOwner() {
-    let invitedBy;
-    await firebase.ref(`${hashId}/owner`).once('value', snapshot => {
-      invitedBy = snapshot.val();
-    });
+    const invitedBy = await firebase
+      .ref(`${hashId}/owner`)
+      .once('value')
+      .then(snapshot => snapshot.val());
     return invitedBy;
   }
 

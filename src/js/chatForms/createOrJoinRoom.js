@@ -10,10 +10,10 @@ export default function createOrJoinRoom() {
         message: `Dude, you can't have a “space” as a username.`,
       };
     }
-    let users;
-    await firebase.ref(`${hashId}/users`).once('value', snapshot => {
-      users = snapshot.val();
-    });
+    const users = await firebase
+      .ref(`${hashId}/users`)
+      .once('value')
+      .then(snapshot => snapshot.val());
     if (users && users[username])
       return {
         error: true,
