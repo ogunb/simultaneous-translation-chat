@@ -10,11 +10,7 @@ function CreateChat() {
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
     if (user.username && user.lang) {
-      const createOrJoinRoomErr = await createOrJoinRoom().init(
-        hashId,
-        user,
-        e
-      );
+      const createOrJoinRoomErr = await createOrJoinRoom.init(hashId, user, e);
       if (!createOrJoinRoomErr.error) {
         window.location.hash = hashId;
         firebase.ref(`${hashId}/owner`).set(user.username);
@@ -27,4 +23,4 @@ function CreateChat() {
   };
 }
 
-export default CreateChat;
+export default CreateChat();

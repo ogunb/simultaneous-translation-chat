@@ -8,7 +8,8 @@
 	"private": false,
 	"scripts": {
 		"dev": "parcel src/index.html -p 3000",
-		"build": "parcel build src/index.html --public-url ./"
+		"build": "parcel build src/index.html --public-url ./",
+		"deploy": "yarn build && firebase deploy"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",

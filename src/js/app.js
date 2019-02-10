@@ -5,7 +5,7 @@ import JoinChat from './chatForms/joinChatLanding';
 import CreateChat from './chatForms/createChatLanding';
 import createOrJoinRoom from './chatForms/createOrJoinRoom';
 
-function App() {
+(function App() {
   const user = JSON.parse(sessionStorage.getItem('chat-user'));
   const hash = window.location.hash.substring(1);
   const chatForm = document.querySelector('.chat__form');
@@ -17,15 +17,15 @@ function App() {
     landing.style.display = 'flex';
     chatForm.addEventListener('submit', e => {
       e.preventDefault();
-      CreateChat().onSubmit(e);
+      CreateChat.onSubmit(e);
     });
   }
 
   function guestForAnotherChat() {
-    JoinChat().init();
+    JoinChat.init();
     chatForm.addEventListener('submit', e => {
       e.preventDefault();
-      JoinChat().onSubmit(e);
+      JoinChat.onSubmit(e);
     });
   }
 
@@ -36,12 +36,10 @@ function App() {
     } else if (hash && !user) {
       guestForAnotherChat();
     } else {
-      createOrJoinRoom().directToChat(hash, user);
+      createOrJoinRoom.directToChat(hash, user);
     }
   }
   return {
     init,
   };
-}
-
-App().init();
+})().init();

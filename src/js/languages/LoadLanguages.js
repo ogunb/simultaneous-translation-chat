@@ -1,6 +1,6 @@
 import { languages, flags } from './languages';
 
-function LoadLanguages() {
+export default function LoadLanguages() {
   const selectEl = document.querySelector('.chat__lang');
   const optionsNodes = [];
   for (let i = 0; i < languages.length; i += 2) {
@@ -18,5 +18,3 @@ function LoadLanguages() {
     })
     .join('');
 }
-
-export default LoadLanguages;

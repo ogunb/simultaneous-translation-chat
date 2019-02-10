@@ -2,7 +2,7 @@ import firebase from '../base';
 import addLanguagesToDb from './addLanguagesToDb';
 import MessageForm from '../chatMessages/MessageForm';
 
-export default function createOrJoinRoom() {
+function createOrJoinRoom() {
   async function validateUsername(hashId, { username, lang }) {
     if (username === ('' || ' ')) {
       return {
@@ -33,7 +33,7 @@ export default function createOrJoinRoom() {
     loading.style.display = 'none';
     landing.style.display = 'none';
     chatScreen.style.display = 'flex';
-    MessageForm(hash, user).init();
+    MessageForm.init(hash, user);
     window.scrollTo(0, document.body.scrollHeight);
   }
 
@@ -56,3 +56,5 @@ export default function createOrJoinRoom() {
     directToChat,
   };
 }
+
+export default createOrJoinRoom();

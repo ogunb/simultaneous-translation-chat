@@ -1,0 +1,31 @@
+[debug] [2019-02-06T09:17:36.142Z] ----------------------------------------------------------------------
+[debug] [2019-02-06T09:17:36.147Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ogun\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-02-06T09:17:36.148Z] CLI Version:   6.3.1
+[debug] [2019-02-06T09:17:36.148Z] Platform:      win32
+[debug] [2019-02-06T09:17:36.148Z] Node Version:  v10.13.0
+[debug] [2019-02-06T09:17:36.151Z] Time:          Wed Feb 06 2019 12:17:36 GMT+0300 (GMT+03:00)
+[debug] [2019-02-06T09:17:36.151Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-06T09:17:36.174Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-06T09:17:36.175Z] > authorizing via signed-in user
+[debug] [2019-02-06T09:17:36.175Z] [iam] checking project simultaneous-translation-chat for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-02-06T09:17:36.178Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/simultaneous-translation-chat:testIamPermissions  
+
+[debug] [2019-02-06T09:17:37.491Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-06T09:17:37.496Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/simultaneous-translation-chat  
+ 
+[debug] [2019-02-06T09:17:38.045Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'simultaneous-translation-chat'...
+[info] 
+[info] i  deploying database, functions, hosting
+[debug] [2019-02-06T09:17:38.057Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at assertPath (path.js:39:11)
+    at Object.join (path.js:432:7)
+    at Config.path (C:\Users\Ogun\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:134:39)
+    at C:\Users\Ogun\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:59:46
+    at _chain (C:\Users\Ogun\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:22:40)
+    at C:\Users\Ogun\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:25:20
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[error] 
+[error] Error: An unexpected error has occurred.

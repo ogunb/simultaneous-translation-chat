@@ -43,4 +43,4 @@ function JoinChat() {
   };
 }
 
-export default JoinChat;
+export default JoinChat();
