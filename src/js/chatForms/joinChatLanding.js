@@ -21,7 +21,7 @@ function JoinChat() {
     user.username = e.target[0].value;
     user.lang = e.target[1].value;
     if (user.username && user.lang) {
-      createOrJoinRoom().init(hashId, user, e);
+      createOrJoinRoom.init(hashId, user, e);
     }
   }
 

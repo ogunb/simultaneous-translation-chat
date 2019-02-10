@@ -22,14 +22,18 @@
     display: inline-block
     background: var(--darker-green)
     color: var(--light)
-    margin-top: 10px
-    border-radius: 36px 36px 36px 0
+    margin-top: 5px
+    border-radius: 36px 36px 36px 6px
     box-sizing: border-box
     max-width: 90%
-    padding: 0 25px
+    padding: 9px 15px 10px
     position: relative
     .chat__message
-      margin: 10px 0
+      margin: 0 0
+    &.same__owner
+      border-radius: 6px 36px 36px 6px
+    &.same__owner__last
+      border-radius: 6px 36px 36px 36px
   .chat__translation__info
     position: relative
     color: var(--dark)
@@ -38,16 +42,18 @@
   .chat__message__name
     font-weight: 700
     font-size: 16px
-    margin: 0
-.chat__message__group--self
-  align-self: flex-end
-  .chat__message__info
-    border-radius: 36px 36px 0 36px
-    float: right
-  .chat__message__name
+    margin-bottom: 0
     margin-top: 10px
-    text-align: right
-
+.chat__message__group--self
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  .chat__message__info
+    border-radius: 36px 36px 6px 36px
+    &.same__owner
+      border-radius: 36px 6px 6px 36px
+    &.same__owner__last
+      border-radius: 36px 6px 36px 36px
 @keyframes fromDarkToDarkerGreen
   from
     fill: var(--dark)

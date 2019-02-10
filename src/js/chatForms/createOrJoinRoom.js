@@ -1,6 +1,7 @@
 import firebase from '../base';
 import addLanguagesToDb from './addLanguagesToDb';
 import MessageForm from '../chatMessages/MessageForm';
+import MessageDOM from '../chatMessages/MessageDOM';
 
 function createOrJoinRoom() {
   async function validateUsername(hashId, { username, lang }) {
@@ -19,9 +20,7 @@ function createOrJoinRoom() {
         error: true,
         message: 'This nick is already taken for this room dude, sorry.',
       };
-    const newUsers = users
-      ? { ...users, [username]: lang }
-      : { [username]: lang };
+    const newUsers = users ? { ...users, [username]: lang } : { [username]: lang };
     firebase.ref(`${hashId}/users`).set(newUsers);
     return { error: false };
   }
@@ -34,7 +33,7 @@ function createOrJoinRoom() {
     landing.style.display = 'none';
     chatScreen.style.display = 'flex';
     MessageForm.init(hash, user);
-    window.scrollTo(0, document.body.scrollHeight);
+    MessageDOM.init(hash, user);
   }
 
   async function init(hashId, user, e) {

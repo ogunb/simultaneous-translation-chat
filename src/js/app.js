@@ -6,8 +6,6 @@ import CreateChat from './chatForms/createChatLanding';
 import createOrJoinRoom from './chatForms/createOrJoinRoom';
 
 (function App() {
-  const user = JSON.parse(sessionStorage.getItem('chat-user'));
-  const hash = window.location.hash.substring(1);
   const chatForm = document.querySelector('.chat__form');
   const loading = document.querySelector('.loading');
   const landing = document.querySelector('.chat__main-page');
@@ -30,6 +28,8 @@ import createOrJoinRoom from './chatForms/createOrJoinRoom';
   }
 
   function init() {
+    const user = JSON.parse(sessionStorage.getItem('chat-user'));
+    const hash = window.location.hash.substring(1);
     LoadLanguages();
     if (!hash) {
       firstLanding();
